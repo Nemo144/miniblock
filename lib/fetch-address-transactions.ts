@@ -5,3 +5,20 @@ interface FetchAddressTransactionsArgs {
   address: string;
   offset: number;
 }
+
+//output from the function
+export interface FetchAddressTransactionsResponse {
+  limit: number;
+  offset: number;
+  total: number;
+  results: Array<{
+    tx: IDBTransaction;
+    stx_sent: string;
+    stx_received: string;
+    events: {
+      stx: TransitionEvent;
+      ft: TransitionEvent;
+      nft: TransitionEvent;
+    };
+  }>;
+}
