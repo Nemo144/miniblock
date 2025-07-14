@@ -85,3 +85,20 @@ interface TransactionEvent {
   mint: number;
   burn: number;
 }
+
+//using hiro's api to fetch transaction history
+export async function fetchAddressTransactions({
+  address,
+  offset = 0,
+}: FetchAddressTransactionsArgs): Promise<FetchAddressTransactionsResponse> {
+  const url = `https://api.hiro.so/extended/v2/addresses/${address}/transactions?limit=20&offset=${offset}`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch address transactions");
+  }
+
+  const data = await response.json();
+  return data as FetchAddressTransactionsResponse;
+}
