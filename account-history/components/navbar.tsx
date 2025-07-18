@@ -34,5 +34,18 @@ export const Navbar = () => {
     router.push(`/${searchAddress}`);
   };
 
-  return <div>Navbar</div>;
+  return (
+    <nav className="flex w-full items-center justify-between gap-4 p-4 h-16 border-b border-gray-500">
+      <Link href="/" className="text-2xl font-bold">
+        Stacks Account History
+      </Link>
+
+      <input
+        type="text"
+        placeholder="SP..."
+        className="w-96 rounded-lg bg-gray-700  px-4 py-2 text-sm"
+        onChange={(e) => setSearchAddress(e.target.value)}
+      />
+    </nav>
+  );
 };
