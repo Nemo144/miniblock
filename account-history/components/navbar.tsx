@@ -45,7 +45,47 @@ export const Navbar = () => {
         placeholder="SP..."
         className="w-96 rounded-lg bg-gray-700  px-4 py-2 text-sm"
         onChange={(e) => setSearchAddress(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            // enter = search
+            handleSearch();
+          }
+        }}
       />
+
+      <div className="flex items-center gap-2">
+        {/*if userData exists, show the disconnect wallet button, else show the connect wallet button */}
+        {userData ? (
+          <div className="flex items-center gap-2">
+            {/*button for quickly viewing user's own transaction history */}
+            <button
+              className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              type="button"
+              onClick={() => {
+                router.push(`/${userData.profile.stxAddress.mainnet}`);
+              }}
+            >
+              View{abbreviateAddress(userData.profile.stxAddress.mainnet)}
+            </button>
+
+            <button
+              type="button"
+              onClick={disconnectWallet}
+              className="rounded-lg bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            >
+              Disconnect
+            </button>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={connectWallet}
+            className="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Connect Wallet
+          </button>
+        )}
+      </div>
     </nav>
   );
 };
