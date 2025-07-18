@@ -17,6 +17,7 @@ export function useStacks() {
   // creating a new user session based on the application config
   const userSession = new UserSession({ appConfig });
 
+  //to connect the wallet
   function connectWallet() {
     showConnect({
       appDetails: {
