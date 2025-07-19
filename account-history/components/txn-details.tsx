@@ -23,3 +23,12 @@ type TransactionInformationByType = {
   secondaryTitle: string;
   tags: string[];
 };
+
+//an icon to represent each type of transaction
+const TxTypeIcon: Record<Transaction["tx_type"], LucideIcon> = {
+  coinbase: BlocksIcon,
+  token_transfer: ArrowLeftRightIcon,
+  smart_contract: CodeSquareIcon,
+  contract_call: FunctionSquareIcon,
+  poison_microblock: ActivityIcon,
+};
