@@ -32,3 +32,6 @@ const TxTypeIcon: Record<Transaction["tx_type"], LucideIcon> = {
   contract_call: FunctionSquareIcon,
   poison_microblock: ActivityIcon,
 };
+
+// get the transaction info by type 
+function getTransactionInformationByType
