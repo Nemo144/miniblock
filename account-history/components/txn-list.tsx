@@ -11,7 +11,7 @@ interface TransactionsListProps {
   transactions: FetchAddressTransactionsResponse;
 }
 
-export const TransactionList = ({
+export const TransactionsList = ({
   address,
   transactions,
 }: TransactionsListProps) => {

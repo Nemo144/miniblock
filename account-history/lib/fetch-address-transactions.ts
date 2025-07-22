@@ -1,7 +1,7 @@
 // //this will be for the function whereby given an address and an starting point, will return the next 20 transactions
 interface FetchAddressTransactionsArgs {
   address: string;
-  offset: number;
+  offset?: number;
 }
 
 //output from the function
