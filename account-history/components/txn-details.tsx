@@ -33,7 +33,7 @@ const TxTypeIcon: Record<Transaction["tx_type"], LucideIcon> = {
   poison_microblock: ActivityIcon,
 };
 
-// get the transaction info by type
+//get the transaction info by type
 function getTransactionInformationByType(
   result: TransactionDetailProps["result"]
 ): TransactionInformationByType {
