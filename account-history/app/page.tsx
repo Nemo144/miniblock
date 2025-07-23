@@ -4,7 +4,7 @@ import React from "react";
 import { useStacks } from "@/hooks/use-stacks";
 import { redirect } from "next/navigation";
 
-export const Home = () => {
+const Home = () => {
   const { userData } = useStacks();
 
   if (!userData) {
@@ -20,3 +20,5 @@ export const Home = () => {
   //if user's wallet is connected, just redirect to the /SP... page to show their profile
   redirect(`/${userData.profile.stxAddress.mainnet}`);
 };
+
+export default Home;

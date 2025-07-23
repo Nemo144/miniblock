@@ -19,6 +19,7 @@ export function useStacks() {
 
   //to connect the wallet
   function connectWallet() {
+    console.log("Stacks connectWallet called");
     showConnect({
       appDetails: {
         name: "Stacks Account History",
